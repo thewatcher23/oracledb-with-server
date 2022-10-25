@@ -1,0 +1,14 @@
+version: '3'
+services:
+  application:
+    container_name: server
+    ports:
+     - "8080:8080"
+    image: k3d-registry.localhost:5000/prototipi/server-db:latest
+  oracle:
+    container_name: database
+    ports:
+     - "1548:1521"
+    image: gvenzl/oracle-xe
+    environment: 
+      - ORACLE_PASSWORD=password
