@@ -55,7 +55,6 @@ COPY app/go.mod ./
 
 # Copy the source code
 COPY app/*.go ./
-COPY chart chart
 COPY app app
 
 # Copy the git repo
