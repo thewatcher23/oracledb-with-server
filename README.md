@@ -20,9 +20,25 @@ Compariranno due container all'interno di Docker:
 - un container chiamato "server" che rappresenta appunto il server e che stamperà nei log una stringa json relativa alla chiamata http che il db farà al server stesso;
 - un container denominato "database" che rappresenta Oracle XE.
 
+## **_COLLEGAMENTO AL DATABASE <a name='Collegamento al DB'></a>_**
+
+Per collegarci al DB usiamo l'estensione "Oracle Developer Tools for VS Code". 
+Premendo sul simbolo + in alto a destra, comparirà una schermata come quella seguente:
+
+![create_connection](/immagini_markdown/create_connection.png)
+
+Per connettersi come utente SYS, definire i seguenti parametri:
+- Port number: 1548; 
+- Role: SYSDBA;
+- User name: SYS;
+- Password: password. 
+
+Dopodichè premere su "Create Connection" e se i parametri inseriti sono corretti, comparirà "SYS.XEPDB1" sotto la scritta "DATABASE", presente a destra. 
+
+
 ## **_CONFIGURAZIONE ORACLE XE <a name='Configurazione DB'></a>_**
 
-Una volta installato il Server e il DB, bisogna configurare quest'ultimo. Entrando come utente SYS nel DB (PASSWORD=password), lanciare le seguenti query che permettono di creare un utente chiamato "test" la cui password di accesso è "test" e consentono all'utente di potersi connettere al DB:
+Una volta connessi al DB, bisogna configurare quest'ultimo. Entrando come utente SYS nel DB, lanciare le seguenti query che permettono di creare un utente chiamato "test" la cui password di accesso è "test" e consentono all'utente di potersi connettere al DB:
 
 ```sql
 CREATE USER test IDENTIFIED BY test;
@@ -77,13 +93,19 @@ grant create trigger to test;
 ALTER USER test quota unlimited on users;
 ```
 
-Ora entrare nel DB come utente "test" e creare una tabella di questo tipo:
+Ora entrare nel DB come utente "test". Per connettersi come utente "test" al DB, eseguire la stessa procedura presente nella sezione "COLLEGAMENTO AL DATABESE", settando i seguenti parametri:
+- Port number: 1548; 
+- Role: Default;
+- User name: TEST;
+- Password: test. 
+
+A questo punto lanciare i seguenti comandi come utente "test". Creare una tabella di questo tipo:
 
 ```sql
 CREATE TABLE PROVA (
         name_1          VARCHAR2(100),
         surname_1 	    VARCHAR2(100),
-        id          	VARCHAR2(100),
+        id              VARCHAR2(100),
 	    time_colum  	TIMESTAMP(6)
     );
 ```
