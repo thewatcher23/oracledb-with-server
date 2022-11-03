@@ -1,3 +1,3 @@
-module poste.it/sourceapp
+module prototipi/sourceapp
 
 go 1.19
