@@ -2,6 +2,7 @@ version: '3'
 services:
   application:
     container_name: server
+    build: ./server
     ports:
      - "8080:8080"
     image: k3d-registry.localhost:5000/prototipi/server-db:latest
