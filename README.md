@@ -1,4 +1,4 @@
-# **COLLEGAMENTO TRA ORACLE XE E SERVER IN HTTP**
+# **HOW TO CONNECT ORACLE XE TO SERVER IN HTTP**
 Il seguente prototipo ha l'obiettivo di stabilire una connessione tra il database Oracle XE e un server HTTP in seguito ad un trigger.
 
 ## **_PREQUISITI <a name='Prerequisiti'></a>_**
