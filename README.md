@@ -146,7 +146,7 @@ DECLARE
 
 ## **_VISUALIZZAZIONE DEI DATI SUL SERVER <a name='Dati Server'></a>_**
 
-A questo punto il tutto è configurato e pronto per poter visualizzare i dati nei log del Server. Supponiamo di eseguire un INSERT nel DB, lanciando la seguenti query:
+A questo punto il tutto è configurato e pronto per poter visualizzare i dati nei log del Server. Supponiamo di eseguire un INSERT nel DB, lanciando la seguente query:
 
 ```sql
 INSERT INTO PROVA(
