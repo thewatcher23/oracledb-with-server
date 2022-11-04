@@ -46,6 +46,8 @@ GRANT CONNECT TO test;
 ```
 A questo punto bisogna creare un ACL (Access Control List) che consenta all'utente di potersi connettere e risolvere una determinata rete. Inoltre l'ACL deve essere assegnata alla rete. Per fare ciò, lanciare le seguenti query:
 
+_NOTA_: le query si lanciano premendo con il tasto destro del mouse sul nome del DB, per esempio SYS.XEPDB1, e premendo su "Open New SQL File". A quel punto si aprirà una pagina dove poter incollare i comandi SQL sottostanti. Per poter eseguire una query, bisogna selezionarla tutta e premere il tasto "Execute SQL" che si trova in alto a destra. 
+
 ```sql
 BEGIN
   DBMS_NETWORK_ACL_ADMIN.create_acl (
@@ -141,3 +143,24 @@ DECLARE
         utl_http.end_response(l_http_response); 
     END TRG_EDI_TRANSACTIONS;
 ```
+
+## **_VISUALIZZAZIONE DEI DATI SUL SERVER <a name='Dati Server'></a>_**
+
+A questo punto il tutto è configurato e pronto per poter visualizzare i dati nei log del Server. Supponiamo di eseguire un INSERT nel DB, lanciando la seguenti query:
+
+```sql
+INSERT INTO PROVA(
+    NAME_1,
+    SURNAME_1,
+    ID
+  )
+VALUES
+  (
+    'pippo',
+    'pluto',
+    '1234'
+  );
+```
+In seguito all'INSERT e grazie alla configurazione del trigger, quest'ultimo stabilisce una chiamata HTTP con il server che stampa nei suoi log il seguente messaggio:
+
+![log_server](/immagini_markdown/log_server.png)
