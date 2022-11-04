@@ -1,6 +1,9 @@
 # **HOW TO CONNECT ORACLE XE TO SERVER IN HTTP**
 Il seguente prototipo ha l'obiettivo di stabilire una connessione tra il database Oracle XE e un server HTTP in seguito ad un trigger.
 
+![create_connection](/immagini_markdown/overview.png)
+
+
 ## **_PREQUISITI <a name='Prerequisiti'></a>_**
 
 Per poter eseguire il progetto, bisogna installare i seguenti componenti:
@@ -146,7 +149,7 @@ DECLARE
 
 ## **_VISUALIZZAZIONE DEI DATI SUL SERVER <a name='Dati Server'></a>_**
 
-A questo punto il tutto è configurato e pronto per poter visualizzare i dati nei log del Server. Supponiamo di eseguire un INSERT nel DB, lanciando la seguente query:
+A questo punto il tutto è configurato e pronto per poter visualizzare i dati nei log del Server. Supponiamo di eseguire un INSERT nel DB come utente TEST, lanciando la seguente query:
 
 ```sql
 INSERT INTO PROVA(
