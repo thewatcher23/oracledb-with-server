@@ -17,7 +17,7 @@ Per poter eseguire il progetto, bisogna installare i seguenti componenti:
 Per poter installare il prototipo ci serviamo di docker compose. Quindi mettendosi nella cartella del progetto dove è presente il file 'docker-compose.yml' lanciare il seguente comando dalla shell:
 
 ```bash
-docker compose up
+docker compose up -d
 ```
 Compariranno due container all'interno di Docker:
 - un container chiamato "server" che rappresenta appunto il server e che stamperà nei log una stringa json relativa alla chiamata http che il db farà al server stesso;
@@ -164,6 +164,11 @@ VALUES
     '1234'
   );
 ```
-In seguito all'INSERT e grazie alla configurazione del trigger, quest'ultimo stabilisce una chiamata HTTP con il server che stampa nei suoi log il seguente messaggio:
+In seguito all'INSERT e grazie alla configurazione del trigger, quest'ultimo stabilisce una chiamata HTTP con il server. Per visualizzare i log del server, lanciare il seguente comando dalla shell:
+
+```bash
+docker logs server --follow
+```
+L'output sarà il seguente:
 
 ![log_server](/immagini_markdown/log_server.png)
